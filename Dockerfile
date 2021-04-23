@@ -44,7 +44,3 @@ RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v${PROTOC_GEN_GO_VER
 ARG PROTOC_GEN_GO_GRPC_VERSION
 RUN go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v${PROTOC_GEN_GO_GRPC_VERSION}
 
-RUN apt-get autoremove -y \
-    ca-certificates \
-    unzip \
-    wget
