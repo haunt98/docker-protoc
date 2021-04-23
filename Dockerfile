@@ -1,10 +1,10 @@
 FROM ubuntu:20.04
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
-    ca-certificates=20190110ubuntu1.1 \
-    clang-format=1:10.0-50~exp1 \
-    unzip=6.0-25ubuntu1 \
-    wget=1.20.3-1ubuntu1 \
+    ca-certificates \
+    clang-format \
+    unzip \
+    wget \
     && rm -rf /var/lib/apt/lists/*
 
 RUN useradd --create-home --shell /bin/bash docker
@@ -44,11 +44,3 @@ RUN GO111MODULE=on go get google.golang.org/protobuf/cmd/protoc-gen-go@${PROTOC_
 
 ARG PROTOC_GEN_GO_GRPC_VERSION
 RUN GO111MODULE=on go get google.golang.org/grpc/cmd/protoc-gen-go-grpc@${PROTOC_GEN_GO_GRPC_VERSION}
-
-ARG GATEWAY_VERSION
-RUN GO111MODULE=on go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway@${GATEWAY_VERSION}
-RUN GO111MODULE=on go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger@${GATEWAY_VERSION}
-
-RUN cp -r $GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway\@${GATEWAY_VERSION}/protoc-gen-grpc-gateway ${LOCAL}/include/
-RUN cp -r $GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway\@${GATEWAY_VERSION}/protoc-gen-swagger ${LOCAL}/include/
-RUN cp -r $GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway\@${GATEWAY_VERSION}/third_party ${LOCAL}/include/
