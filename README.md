@@ -5,8 +5,8 @@ Run `protoc` with `docker`.
 ## Include
 
 - [protobuf](https://github.com/protocolbuffers/protobuf)
-- [protoc-gen-go](https://pkg.go.dev/google.golang.org/protobuf/cmd/protoc-gen-go)
-- [protoc-gen-go-grpc](https://pkg.go.dev/google.golang.org/grpc/cmd/protoc-gen-go-grpc)
+- [protoc-gen-go](https://github.com/protocolbuffers/protobuf-go)
+- [protoc-gen-go-grpc](https://github.com/grpc/grpc-go)
 - [buf](https://github.com/bufbuild/buf)
 
 ## Install
@@ -19,25 +19,11 @@ IMAGE=image TAG=tag make build
 
 `/home/docker/app` is mount point in docker container, because user is `docker` not `root`.
 
-Need to replace `/path/to/output`, `/path/to/proto` with your path.
+Need to replace `/path/to/output`, `/path/to/proto` with your real path.
 
-Need to replace `image`, `tag` with your docker image, tag.
+Need to replace `image`, `tag` with your custom.
 
-**Lint**:
-
-With `buf`:
-
-Should include [buf.yaml](buf.yaml) file.
-
-```sh
-docker run --rm --volume $(pwd):/home/docker/app --workdir /home/docker/app image:tag \
-    protoc \
-        -I . \
-        --buf-check-lint_out . \
-        /path/to/proto
-```
-
-**Build**:
+### Build
 
 ```sh
 docker run --rm --volume $(pwd):/home/docker/app --workdir /home/docker/app image:tag \
@@ -48,9 +34,23 @@ docker run --rm --volume $(pwd):/home/docker/app --workdir /home/docker/app imag
         /path/to/proto
 ```
 
-**Format**:
+### Lint
 
-Should include [.clang-format](.clang-format) file.
+With `buf`:
+
+Should include [buf.yaml](https://docs.buf.build/configuration/) file.
+
+```sh
+docker run --rm --volume $(pwd):/home/docker/app --workdir /home/docker/app image:tag \
+    protoc \
+        -I . \
+        --buf-check-lint_out . \
+        /path/to/proto
+```
+
+### Format
+
+Should include [.clang-format](https://clang.llvm.org/docs/ClangFormatStyleOptions.html) file.
 
 ```sh
 docker run --rm --volume $(pwd):/home/docker/app --workdir /home/docker/app image:tag \
