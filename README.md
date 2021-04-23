@@ -7,7 +7,6 @@ Run `protoc` with `docker`.
 - [protobuf](https://github.com/protocolbuffers/protobuf)
 - [protoc-gen-go](https://pkg.go.dev/google.golang.org/protobuf/cmd/protoc-gen-go)
 - [protoc-gen-go-grpc](https://pkg.go.dev/google.golang.org/grpc/cmd/protoc-gen-go-grpc)
-- [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway)
 - [buf](https://github.com/bufbuild/buf)
 
 ## Install
@@ -52,23 +51,6 @@ docker run --rm --volume $(pwd):/home/docker/app --workdir /home/docker/app imag
         -I . \
         --go_out /path/to/output \
         --go-grpc_out /path/to/output \
-        /path/to/proto
-```
-
-With `grpc-gateway`:
-
-```sh
-docker run --rm --volume $(pwd):/home/docker/app --workdir /home/docker/app image:tag \
-    protoc \
-        -I /home/docker/.local/include \
-        -I /home/docker/.local/include/third_party/googleapis \
-        -I . \
-        --go_out /path/to/output \
-        --go-grpc_out /path/to/output \
-        --grpc-gateway_out /path/to/output \
-        --grpc-gateway_opt logtostderr=true \
-        --swagger_out /path/to/output \
-        --swagger_out logtostderr=true \
         /path/to/proto
 ```
 
