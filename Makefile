@@ -2,7 +2,7 @@
 PROTOC_VERSION = 3.15.8
 
 # https://github.com/bufbuild/buf/releases
-BUF_VERISON = 0.27.1
+BUF_VERISON = 0.41.0
 
 # https://golang.org/doc/devel/release.html
 GO_VERSION = 1.15.2
