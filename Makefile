@@ -11,7 +11,7 @@ GO_VERSION = 1.16.3
 PROTOC_GEN_GO_VERSION = v1.26.0
 
 # https://github.com/grpc/grpc-go/releases
-PROTOC_GEN_GO_GRPC_VERSION = v1.0.0
+PROTOC_GEN_GO_GRPC_VERSION = v1.1.0
 
 # https://github.com/grpc-ecosystem/grpc-gateway/releases
 GATEWAY_VERSION = v1.15.2
