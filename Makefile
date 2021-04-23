@@ -13,9 +13,6 @@ PROTOC_GEN_GO_VERSION = v1.26.0
 # https://github.com/grpc/grpc-go/releases
 PROTOC_GEN_GO_GRPC_VERSION = v1.1.0
 
-# https://github.com/grpc-ecosystem/grpc-gateway/releases
-GATEWAY_VERSION = v1.15.2
-
 .PHONY: help test build push
 
 help:
@@ -33,7 +30,6 @@ build: test
 	--build-arg GO_VERSION=$(GO_VERSION) \
 	--build-arg PROTOC_GEN_GO_VERSION=$(PROTOC_GEN_GO_VERSION) \
 	--build-arg PROTOC_GEN_GO_GRPC_VERSION=$(PROTOC_GEN_GO_GRPC_VERSION) \
-	--build-arg GATEWAY_VERSION=$(GATEWAY_VERSION) \
 	.
 
 push: build
