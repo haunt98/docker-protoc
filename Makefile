@@ -13,16 +13,21 @@ PROTOC_GEN_GO_VERSION = 1.26.0
 # https://github.com/grpc/grpc-go/releases
 PROTOC_GEN_GO_GRPC_VERSION = 1.1.0
 
-.PHONY: help test build push
+.PHONY: help check build push
 
 help:
-	@echo read Makefile to understand
+	@echo Read Makefile to understand
 
-test:
-	@test $(IMAGE)
-	@test $(TAG)
+check:
+ifeq ($(strip $(IMAGE)),)
+	$(error Empty IMAGE)
+endif
 
-build: test
+ifeq ($(strip $(TAG)),)
+	$(error Empty TAG)
+endif
+
+build: check
 	docker build \
 	--tag $(IMAGE):$(TAG) \
 	--build-arg PROTOC_VERSION=$(PROTOC_VERSION) \
