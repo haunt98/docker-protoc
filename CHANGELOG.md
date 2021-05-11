@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## v0.2.0 (2021-05-11)
+
+### Added
+
+- feat: check empty image, tag (2021-05-11)
+
+### Others
+
+- chore: remove linespace (2021-05-11)
+
+- build: bump go v1.16.4 (2021-05-11)
+
+- build: bump protoc v3.16.0 (2021-05-11)
+
+- chore(changelog): generate v0.1.0 (2021-04-23)
+
 ## v0.1.0 (2021-04-23)
 
 ### Added
