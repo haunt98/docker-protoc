@@ -1,5 +1,5 @@
 # https://github.com/protocolbuffers/protobuf/releases
-PROTOC_VERSION = 3.16.0
+PROTOC_VERSION = 3.17.2
 
 # https://github.com/bufbuild/buf/releases
 BUF_VERISON = 0.41.0
