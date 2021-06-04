@@ -5,7 +5,7 @@ PROTOC_VERSION = 3.17.2
 BUF_VERISON = 0.43.2
 
 # https://golang.org/doc/devel/release.html
-GO_VERSION = 1.16.4
+GO_VERSION = 1.16.5
 
 # https://github.com/protocolbuffers/protobuf-go/releases
 PROTOC_GEN_GO_VERSION = 1.26.0
